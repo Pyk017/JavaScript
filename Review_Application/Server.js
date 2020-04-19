@@ -1,10 +1,20 @@
 var http = require('http');
-function startServer(){    
+var url = require('url');
+
+function startServer(route, handle){    
     function serverRequest(request, response){
-        console.log('Request Received.');
-        response.writeHead(200, {'Content-Type': 'text/plain'});
-        response.write("Hello from our Application.");
-        response.end();
+        var reviewData = '';
+        var pathname = url.parse(request.url).pathname;
+        console.log('Request Received for ' + pathname);
+        request.setEncoding('UTF8');
+
+        request.addListener('data', function(chunk){
+            reviewData += chunk;
+        });
+
+        request.addListener('end', function(){
+            route(handle, pathname, response, reviewData);
+        });
     }
     http.createServer(serverRequest).listen(8888);
     console.log("request started on localhost port:8888");
