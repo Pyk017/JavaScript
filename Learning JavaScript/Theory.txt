@@ -1,0 +1,20 @@
+What  is JavaScript ?
+
+JavaScript(JS) is a light-weight interpreted, or just-in-time compiled programming language with first class functions.
+It is most well known as the scripting language for web pages, many non-brower environment also use it like Node.js, Apache Couch DB and
+Adobe Acrobat.
+
+First Appeared : December 4, 1995
+Stable Release : ECMAScript 2018 / June 2018
+Preview Release : ECMAScript 2019
+Typing Discipline : Dynamic
+Developer : NetScrape Communication Corporation, Mozilla Foundation, ECMA Internation.
+Designed by : Brendan Eich.
+
+Key-Features :
+1. It is multi-paradigm language.
+2. It supports event-driven, functional, imperative, OOPs, and prototype based programming styles.
+3. It has APIs for working with text, arrays, dates, regular expressions, and the DOM(Documnet Object Model), but the language itself doesnot 
+    include any I/O such as networking, storage or graphical facilities.
+4. It relies upon the host environment in which it is embedded to provide these features.
+5. It is case-sensitive.
