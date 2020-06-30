@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Examples</title>
+        <script>
+            function unhide(){
+                alert("Unhide data");
+                document.getElementById('demo').style.display='block';
+            }
+            function hide(){
+                window.alert("Hide data");  // window object is global scope object, it means that specifing the window keyword is optional.
+                document.getElementById('demo').style.display='None';
+            }
+        </script>
+    </head>
+    <body>
+        <h2>JavaScript Examples.</h2>
+        <p>JavaScript is used to hide HTML elements.</p>
+        <p id="demo" style="display:None">Hello. this is the hidden message.</p>
+        <!-- <button type="button" onclick="document.getElementById('demo').style.display='block'">Click Me.</button>
+        <button type="button" onclick="document.getElementById('demo').style.display='None'">Hide</button> -->
+        <button type="button" onclick="unhide()">Click Me</button>
+        <button type="button" onclick="hide()">Hide</button>
+    </body>
+</html>

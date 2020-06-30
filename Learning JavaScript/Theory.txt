@@ -11,6 +11,7 @@ Typing Discipline : Dynamic
 Developer : NetScrape Communication Corporation, Mozilla Foundation, ECMA Internation.
 Designed by : Brendan Eich.
 
+
 Key-Features :
 1. It is multi-paradigm language.
 2. It supports event-driven, functional, imperative, OOPs, and prototype based programming styles.
@@ -18,3 +19,13 @@ Key-Features :
     include any I/O such as networking, storage or graphical facilities.
 4. It relies upon the host environment in which it is embedded to provide these features.
 5. It is case-sensitive.
+
+
+Why Study JavaScript?
+JavaScript is one of the 3 languages all web developers must learn:
+   1. HTML to define the content of web pages
+   2. CSS to specify the layout of web pages
+   3. JavaScript to program the behavior of web pages
+
+Web pages are not the only place where JavaScript is used. Many desktop and server programs use JavaScript. Node.js is the best known. 
+Some databases, like MongoDB and CouchDB, also use JavaScript as their programming language.
