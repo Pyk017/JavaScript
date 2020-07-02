@@ -39,5 +39,6 @@ var x = 'This is string methods of string';
 // console.log(t.slice(10,17));
 
 var num = 25;
-var x = num.toString(16);
+var x = num.toString(16);   // used to convert a number into string, in parameter is the base in which you want to convert octal, hexadecimal etc.
+
 console.log(x, typeof x);
