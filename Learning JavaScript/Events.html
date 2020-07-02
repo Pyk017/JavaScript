@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Events</title>
+        <script>
+            function displayDate(){
+                document.getElementById("demo").innerHTML+=Date();
+            }
+        </script>
+    </head>
+    <body>
+        <h2>This is Event Handling</h2>
+        <p id='demo'>Current Time is :- </p>
+        <!-- <button type="button" onclick='document.getElementById("demo").innerHTML+=Date()'>Click Me</button> -->
+        <!-- <button type="button" onclick='this.innerHTML+=Date()'>Click Me</button> -->
+        <button type="button" onclick='displayDate()'>Click Me</button>
+        <button type='button' onmouseover="this.innerHTML='This is mouse over event'" onmouseout="this.innerHTML='This is mouse out event.'">Hover over.</button>
+    </body>
+</html>
