@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Select Box</title>
+        <script type="text/javascript">
+            function input(){
+                var select = document.getElementById("selectbox");
+                alert(select.options[select.selectedIndex].value);
+            }
+        </script>
+    </head>
+    <body>
+        <select id="selectbox">
+            <option value="Python">Python</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="C++">C++</option>
+            <option value="Java">Java</option>
+        </select>
+        <button type="button" onclick="input()">Click Me!</button>
+    </body>
+</html>

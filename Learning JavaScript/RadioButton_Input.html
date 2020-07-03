@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>RadioInput</title>
+        <script type="text/javascript">
+            function input(){
+                var py = document.getElementById("py");
+                var js = document.getElementById("js");
+                var cpp = document.getElementById("cpp");
+                var java = document.getElementById("java");
+                
+                if(py.checked == true){
+                    alert("You have choosen Python.");
+                }
+                else if(js.checked == true){
+                    alert("You have choosen JavaScript");
+                }
+                else if(cpp.checked == true){
+                    alert("You have choosen C++");
+                }
+                else if(java.checked == true){
+                    alert("You have choosen Java");
+                }
+                else{
+                    alert("Please Choose something.")
+                }
+
+            }
+            
+        </script>
+    </head>
+    <body>
+        <input type="radio" name="same" value="Python" id="py">Python<br>
+        <input type="radio" name="same" value="Javascript" id="js">JavaScript<br>
+        <input type="radio" name="same" value="C++" id="cpp">C++<br>
+        <input type="radio" name="same" value="Java" id="java">Java<br>
+        <button type="button" onclick="input()">Click Me!</button>
+    </body>
+</html>

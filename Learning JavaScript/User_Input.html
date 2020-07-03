@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>User Input</title>
+        <script type="text/javascript">
+            function input(){
+                var name = document.getElementById("uname").value;
+                var pass = document.getElementById("pass").value;
+                alert("Your UserName and Password is :- " + name + " " + pass);
+            }
+        </script>
+    </head>
+    <body>
+        Enter username : <input type="text" placeholder="username" id="uname"><br>
+        Enter password : <input type="password" placeholder="password" id="pass"><br>
+        <button type="button" onclick="input()">Click Me!</button>
+    </body>
+</html>
