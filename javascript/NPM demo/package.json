@@ -1,0 +1,19 @@
+{
+  "name": "npm_learn",
+  "version": "1.0.0",
+  "description": "Demonstration of npm",
+  "main": "bot.js",
+  "scripts": {
+    "start": "bot.js",
+    "test": "Javascript Awesome"
+  },
+  "keywords": [
+    "javascript",
+    "awesome"
+  ],
+  "author": "Prakhar Kumar Kashyap",
+  "license": "ISC",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}

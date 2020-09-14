@@ -1,0 +1,111 @@
+<html>
+	<head>
+		<title>Learning JavaScript</title>
+		<script type="text/javascript">
+			document.captureEvents(Event.MOUSEMOVE);
+			document.captureEvents(Event.MOUSEDOWN);
+			document.onmouseover = mousePos;
+			document.onmousedown = mouseClick;
+			document.onkeypress = keyPressed;
+
+			var mouseClick = 0;
+			var keyClicked = 0;
+			var mouseX = 0;
+			var mouseY = 0;
+
+			function mousePos(e){
+				mouseX = event.clientX + document.body.scrollLeft;
+				mouseY = event.clientY + document.body.scrollTop;
+
+				document.formex.mousex.value = mouseX;
+				document.formex.mousey.value = mouseY;	
+				
+			}
+
+			function keyPressed(e){
+				keyClicked = String.fromCharCode(e.charCode);
+				if(!keyClicked){
+					return false;
+				} 
+				document.formex.keypressed.value = keyClicked;
+			}
+			
+			function mouseClick(e){
+				switch(e.which){
+					case 1:
+						document.formex.mousebutton.value = "Left";
+						break;
+					case 2:
+						document.formex.mousebutton.value = "Middle";
+						break;
+					default:
+						document.formex.mousebutton.value = "Right";
+						break;
+				}
+				return false;
+			}
+
+			function changeImage(){
+				document.getElementById("image").style.height = "35%";
+				document.getElementById("image").style.width = "45%";
+				return true;					
+			}
+			function alertme(){
+				var temp = document.getElementById("image");
+				var alertmsg = temp.src + "\nHeight: " + temp.height + "\nWidth: " + temp.width;
+				
+				alert(alertmsg);
+				return true;
+			}
+			function changeColor(){
+				document.getElementById("h3style").style.color = "red";
+				document.getElementById("h3style").firstChild.nodeValue = "Excited";
+				return true;	
+			}
+			function changeAgain(){
+				document.getElementById("h3style").style.color = "gray";
+				document.getElementById("h3style").firstChild.nodeValue = "Bored";
+				return true;
+			}
+			function showPara(){
+				document.getElementById("first").style.visibility=(document.formex.firstpara.checked)? "visible": "hidden";
+				document.getElementById("second").style.visibility=(document.formex.secondpara.checked)? "visible": "hidden";
+				document.getElementById("third").style.visibility=(document.formex.thirdpara.checked)? "visible": "hidden";
+			}
+			function test(){
+				alert(navigator.appName);
+			}
+		</script>
+		<style>
+			#h3style{
+				color: gray;
+			}
+		</style>
+	</head>
+	<body onResize="changeImage();" onLoad="alert('Website Loaded!');">
+		<img src="image.png" id="image" onClick="alertme();" onDblClick="alert('You Double Clicked!');"></image>		
+		<h3 id="h3style" onMouseOver="changeColor()" onMouseOut="changeAgain()">RollOver</h3>
+
+		<p id="first">This is a first Paragraph.</p>
+		<p id="second">This is a second Paragraph.</p>
+		<p id="third">This is a third Paragraph.</p>
+
+		<form name="formex">
+			<input type="checkbox" name="firstpara" onclick="showPara()" />First Paragraph<br>
+			<input type="checkbox" name="secondpara" onclick="showPara()" />Second Paragraph<br>
+			<input type="checkbox" name="thirdpara" onclick="showPara()" />Third Paragraph<br>
+			
+			<p>Text Again!</p>
+			<input type="text" name="mousex" /> Mouse X position<br />
+			<input type="text" name="mousey" /> Mouse Y position<br />
+			
+			
+			<input type="text" name="keypressed" /> Key Pressed.<br />
+			<input type="text" name="mousebutton" /> Mouse Button.<br />
+			
+
+		</form>		
+
+		<button type="button" onclick="test()">Click ME!</button>
+	</body>
+</html>
