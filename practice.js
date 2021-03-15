@@ -1,8 +1,21 @@
-'use strict';
+// let user = {
+// 	id: 1
+// };
 
-var x = 100 / "100";
-x.toString();
-console.log(typeof(x))
+// let id = Symbol('id');
+// user[id] = 2
 
-const COLOR_RED = 10; 
-console.log(COLOR_RED)
+// console.log(user)
+// console.log(user[id])
+// console.log(user['id'])
+// console.log(user[id])
+
+let student = {
+	name: 'Lily'
+};
+
+let id_a = Symbol('id');
+let id_b = Symbol('id');
+student[id_a] = "By cmpny A"
+student[id_b] = "By cmpny B" 
+console.log(student);
