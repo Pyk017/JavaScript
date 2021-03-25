@@ -1,0 +1,58 @@
+$ What is Node JS?
+
+=> Javascript Runtime(NOT a language or a framework).
+=> Built on V8 JavaScript engine(Same as Google chrome).
+=> Written in c++
+=> Esentially allows to run JavaScript code on the server.
+
+$ Why use Node?
+
+=> Fast, efficient and highly scalable.
+=> Event driven, non-blocking I/O model.
+=> Popular in the industry.
+=> Same language on the front end and backend(JS).
+
+$ Non-Blocking I/O
+
+=> Works on a single thread using non-blocking I/O calls.
+=> Supports tens of thousands concurrent connections.
+=> Optimizes throughput & scalablitiy in apps with many I/O operations.
+=> All of this makes Node.js apps very fast & efficient.
+
+$ Node's Event Loop
+
+=> Single threaded.
+=> Supports concurrency via events and callbacks.
+=> EventEmitter class is used to bind events and listeners.
+
+$ Types of Project for Node:
+
+=> REST API and Microservices.
+=> Real Time Services (chat, live updates).
+=> cRUD Apps - Blogs, Shopping carts, Social Networks.
+=> Tools and utilities.
+NOTE - Anything that is not cpu intensive.
+
+
+$ NPM - Node Package Manager
+
+=> Install 3rd party packages (frameworks, libraries, tools, etc.)
+=> Packages get stored in the "node_modules" folder.
+=> All dependencies are listed in a "package.json" file.
+=> NPM scripts can be created to run certain tasks such as run a server.
+
+Example:
+"npm init":                 Generates a package.json file.
+"npm install express":      installs a package locally.
+"npm install -g nodemon":   installs a package globally.
+
+
+$ Node node_modules
+
+=> Node core Modules (path, fs, http, etc)
+=> 3rd party modules/packages installed via NPM.
+=> custom modules(files)
+
+const path = require('path')        => path modules
+const myFile = require('./myFile')   => custom modules
+
