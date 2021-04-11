@@ -1,37 +1,36 @@
-var express = require('express');
-var app = express();
-
-var bodyParser = require('body-parser');
-
-var urlencodedParser = bodyParser.urlencoded({extended: false})
-
-
+let express = require('express');
+let bodyParser = require('body-parser');
+let app = express();
+let http = require('http').Server(app);
+let io = require('socket.io')(http);
 
 app.use(express.static(__dirname));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
-var messages = [
-	{name: 'Prakhar', message: 'Hi'},
-	{name: 'Yush', message: 'Hello'}
+
+let messages = [
+	{name: "Prakhar", message: "Hello Prakhar!"},
+	{name: "Kumar", message: "Your Surname is Kumar"}
 ]
 
 app.get('/messages', (req, res) =>{
 	res.send(messages);
 });
 
-app.post('/messages', urlencodedParser, (req, res) =>{
-	response = {
-		name: req.body.name,
-		msg : req.body.message
-	};
-	console.log(response);
-	res.sendStatus(200);
-	res.end(JSON.stringify(response));
+app.post('/messages', (req, res) =>{
+	// console.log(req.body);
+	messages.push(req.body);
+	io.emit('message', req.body)
 	res.sendStatus(200);
 });
 
+io.on('connection', (socket) => {
+	console.log('User Connected');
+})
 
-let server = app.listen(3000, () => {
-	console.log("Server is listening on port ", server.address().port);
+
+
+let server = http.listen(5500, () => {
+	console.log(`Server is listening to port number :- ${server.address().port}`);
 });
-
