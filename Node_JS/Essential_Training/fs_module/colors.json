@@ -4,10 +4,20 @@
     "green": "relief signal",
     "yellow": "waiting signal",
     "black": "for supermacy",
-    "white": "for peace"
-}
-{
-    "name": "prkhar",
-    "age": "22",
-    "college": "PSIT"
+    "white": "for peace",
+
+    "colorList": [
+        {
+            "color": "red",
+            "hex": "#FF0000"
+        },
+        {
+            "color": "green",
+            "hex": "#00FF00"
+        },
+        {
+            "color": "blue",
+            "hex": "#0000FF"
+        }
+    ]
 }
