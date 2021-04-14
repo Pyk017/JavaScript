@@ -20,7 +20,7 @@ fs.readdirSync('./storage').forEach(fileName => { // Before removing directory, 
     fs.unlinkSync(`./storage/${fileName}`);
 });
 
-fs.rmdir("./storage" err => {  // to remove the directory
+fs.rmdir("./storage", err => {  // to remove the directory
     if (err){
         throw err;
     }
