@@ -1,13 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Roboto:wght@100&display=swap');
+
 body {
     background: #b92b27;
     background: -webkit-linear-gradient(to right, #1565C0, #b92b27);
     background: linear-gradient(to right, #1565C0, #b92b27); 
 }
 
+.heading {
+    margin-left: 37%;
+    font-family: 'DotGothic16',
+    sans-serif;
+    
+    color: rgba(0, 255, 255, 0.726);
+    
+}
+
 .container {
     display: inline-block;
     margin-left: 35%;
-    margin-top: 5%;
+    margin-top: 3%;
     width: 50%;
 }
 
@@ -25,10 +37,11 @@ body {
     justify-content: center;
     align-items: center;
     display: flex;
-    font-family: Arial;
+    font-family: 'DotGothic16',
+    sans-serif;
     font-size: 3rem;
     font-weight: bold;
-    color: rgba(230, 238, 240, 0.699);
+    color: rgba(248, 250, 248, 0.938);
     background: rgba(3, 211, 248, 0.05);
     border-radius: 6px;
     overflow: hidden;
@@ -47,14 +60,21 @@ body {
     cursor: pointer;
 }
 
-.card:hover .card-front {
+/* .card:hover .card-front {
     transform: rotateX(-180deg);
 }
 
 .card:hover .card-back {
     transform: rotateX(0deg);
+} */
+
+.flipCard .card-front {
+    transform: rotateX(-180deg);
 }
 
+.flipCard .card-back {
+    transform: rotateX(0deg);
+}
 
 
 .card-front {
@@ -70,4 +90,16 @@ body {
     backface-visibility: hidden;
     transform: rotateX(180deg);
     transition: 0.5s;
+}
+
+
+.resultBox {
+    margin-left: 30%;
+}
+
+.col {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: bolder;
+    font-size: large;
+    color: rgb(177, 247, 243);
 }
