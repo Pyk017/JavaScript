@@ -17,6 +17,7 @@ body {
     grid-template-columns: repeat(3, 110px);
     grid-template-rows: repeat(3, 110px);
     grid-gap: 30px;
+    
 }
 
 .cell {
@@ -36,8 +37,37 @@ body {
     border-top: 2px solid rgba(255, 255, 255, 0.2);
     border-left: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+    /* transform: translate(-50%, -50%); */
+    transform-style: preserve-3d;
+    transition: all 0.8s ease;
+    perspective: 1000px;
 }
 
 .cell:hover {
     cursor: pointer;
+}
+
+.card:hover .card-front {
+    transform: rotateX(-180deg);
+}
+
+.card:hover .card-back {
+    transform: rotateX(0deg);
+}
+
+
+
+.card-front {
+    background-size: cover;
+    position: absolute;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+    transition: 0.5s;
+}
+
+.card-back {
+    position: absolute;
+    backface-visibility: hidden;
+    transform: rotateX(180deg);
+    transition: 0.5s;
 }
