@@ -16,17 +16,25 @@ body {
     
 }
 
-.container {
-    display: inline-block;
-    margin-left: 35%;
-    margin-top: 3%;
-    width: 50%;
+
+.content {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: bolder;
+    font-size: large;
+    color: rgb(177, 247, 243);
+}
+
+strong {
+    font-family: 'DotGothic16',
+        sans-serif;
 }
 
 .grid {
+    padding-left: 25%;
+    padding-top: 3%;
     width: 50%;
     display: grid;
-    grid-template-columns: repeat(3, 110px);
+    grid-template-columns: repeat(4, 110px);
     grid-template-rows: repeat(3, 110px);
     grid-gap: 30px;
     
@@ -93,13 +101,3 @@ body {
 }
 
 
-.resultBox {
-    margin-left: 30%;
-}
-
-.col {
-    font-family: 'Source Code Pro', monospace;
-    font-weight: bolder;
-    font-size: large;
-    color: rgb(177, 247, 243);
-}
