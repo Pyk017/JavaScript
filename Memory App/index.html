@@ -1,123 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memory Game</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
-</head>
-<body onload="main()">
-    
+  </head>
+  <body onload="main()">
     <div class="container cards">
+      <div class="heading">
+        <span><h2 class="display-4">Memory Game</h2></span>
+      </div>
 
-        <div class="heading">
-            <span><h2 class="display-4">Memory Game</h2></span>
+      <div class="container pt-5">
+        <div class="row justify-content-center">
+          <div class="col-3 content">
+            <span>Time :- <strong id="">0.00</strong>s</span>
+          </div>
+          <div class="col-2 content">
+            <span>Flips :- <strong id="movecounter">0</strong></span>
+          </div>
         </div>
+      </div>
 
-        <div class="container pt-5">
-            <div class="row justify-content-center">
-                <div class="col-3 content">
-                    <span>Time :- <strong id="">0.00</strong>s</span>
-                </div>
-                <div class="col-2 content">
-                    <span>Flips :- <strong id="">0</strong></span>
-                </div>
-            </div>
+      <div class="grid">
+        <div class="cell card" id="1">
+          <div class="card-front">1</div>
+          <div class="card-back">
+            <!-- <img src="/images/img1.jpg" id="img1" width="110" height="110" style="display: flex;"> -->
+          </div>
         </div>
-
-        <div class="grid">
-            
-            <div class="cell card" id="1">
-                <div class="card-front">
-                    1
-                </div>
-                <div class="card-back">
-                    <!-- <img src="/images/img1.jpg" id="img1" width="110" height="110" style="display: flex;"> -->
-                </div>
-            </div>
-            <div class="cell card" id="2">
-                <div class="card-front">2</div>
-                <div class="card-back">
-                    <!-- <img src="/images/img2.jpg" id="img2" width="110" height="110" style="display: flex;"> -->
-                </div>
-            </div>
-            <div class="cell card" id="3">
-                <div class="card-front">3</div>
-                <div class="card-back">
-                    <!-- <img src="/images/img3.jpg" id="img3" width="110" height="110" style="display: flex;"> -->
-                </div>
-            </div>
-            <div class="cell card" id="4">
-                <div class="card-front">4</div>
-                <div class="card-back">
-                    <!-- <img src="/images/img4.jpg" id="img4" width="110" height="110" style="display: flex;"> -->
-                </div>
-            </div>
-            <div class="cell card" id="5">
-                <div class="card-front">5</div>
-                <div class="card-back">
-                    <!-- <img src="/images/img5.jpg" id="img5" width="110" height="110" style="display: flex;"> -->
-                </div>
-            </div>
-            <div class="cell card" id="6">
-                <div class="card-front">6</div>
-                <div class="card-back">
-                    <!-- <img src="/images/img6.jpg" id="img6" width="110" height="110" style="display: flex;"> -->
-                </div>
-            </div>
-            <div class="cell card" id="7">
-                <div class="card-front">7</div>
-                <div class="card-back">
-                    <!-- <img src="/images/img7.jpg" id="img7" width="110" height="110" style="display: flex;"> -->
-                </div>
-            </div>
-            <div class="cell card" id="8">
-                <div class="card-front">8</div>
-                <div class="card-back">
-                    <!-- <img src="/images/img8.jpg" id="img8" width="110" height="110" style="display: flex;"> -->
-                </div>
-            </div>
-            <div class="cell card" id="9">
-                <div class="card-front">9</div>
-                <div class="card-back">
-                    <!-- <img src="/images/img9.jpg" id="img9" width="110" height="110" style="display: flex;"> -->
-                </div>
-            </div>
-            <div class="cell card" id="10">
-                <div class="card-front">10</div>
-                <div class="card-back">
-                    <!-- <img src="/images/img9.jpg" id="img9" width="110" height="110" style="display: flex;"> -->
-                </div>
-            </div>
-            <div class="cell card" id="11">
-                <div class="card-front">11</div>
-                <div class="card-back">
-                    <!-- <img src="/images/img9.jpg" id="img9" width="110" height="110" style="display: flex;"> -->
-                </div>
-            </div>
-            <div class="cell card" id="12">
-                <div class="card-front">12</div>
-                <div class="card-back">
-                    <!-- <img src="/images/img9.jpg" id="img9" width="110" height="110" style="display: flex;"> -->
-                </div>
-            </div>
+        <div class="cell card" id="2">
+          <div class="card-front">2</div>
+          <div class="card-back">
+            <!-- <img src="/images/img2.jpg" id="img2" width="110" height="110" style="display: flex;"> -->
+          </div>
         </div>
+        <div class="cell card" id="3">
+          <div class="card-front">3</div>
+          <div class="card-back">
+            <!-- <img src="/images/img3.jpg" id="img3" width="110" height="110" style="display: flex;"> -->
+          </div>
+        </div>
+        <div class="cell card" id="4">
+          <div class="card-front">4</div>
+          <div class="card-back">
+            <!-- <img src="/images/img4.jpg" id="img4" width="110" height="110" style="display: flex;"> -->
+          </div>
+        </div>
+        <div class="cell card" id="5">
+          <div class="card-front">5</div>
+          <div class="card-back">
+            <!-- <img src="/images/img5.jpg" id="img5" width="110" height="110" style="display: flex;"> -->
+          </div>
+        </div>
+        <div class="cell card" id="6">
+          <div class="card-front">6</div>
+          <div class="card-back">
+            <!-- <img src="/images/img6.jpg" id="img6" width="110" height="110" style="display: flex;"> -->
+          </div>
+        </div>
+        <div class="cell card" id="7">
+          <div class="card-front">7</div>
+          <div class="card-back">
+            <!-- <img src="/images/img7.jpg" id="img7" width="110" height="110" style="display: flex;"> -->
+          </div>
+        </div>
+        <div class="cell card" id="8">
+          <div class="card-front">8</div>
+          <div class="card-back">
+            <!-- <img src="/images/img8.jpg" id="img8" width="110" height="110" style="display: flex;"> -->
+          </div>
+        </div>
+        <div class="cell card" id="9">
+          <div class="card-front">9</div>
+          <div class="card-back">
+            <!-- <img src="/images/img9.jpg" id="img9" width="110" height="110" style="display: flex;"> -->
+          </div>
+        </div>
+        <div class="cell card" id="10">
+          <div class="card-front">10</div>
+          <div class="card-back">
+            <!-- <img src="/images/img9.jpg" id="img9" width="110" height="110" style="display: flex;"> -->
+          </div>
+        </div>
+        <div class="cell card" id="11" type="img11">
+          <div class="card-front">11</div>
+          <div class="card-back">
+            <!-- <img src="/images/img9.jpg" id="img9" width="110" height="110" style="display: flex;"> -->
+          </div>
+        </div>
+        <div class="cell card" id="12" type="img12">
+          <div class="card-front">12</div>
+          <div class="card-back">
+            <!-- <img src="/images/img9.jpg" id="img9" width="110" height="110" style="display: flex;"> -->
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
 
     <script type="text/javascript" src="vanilla-tilt.js"></script>
-	<script type="text/javascript">
-	VanillaTilt.init(document.querySelectorAll(".cell"), {
-		max: 20,
-		speed: 400,
-		glare: true,
-		"max-glare": 0.5
-	});
-	</script>
-</body>
+    <script type="text/javascript">
+      VanillaTilt.init(document.querySelectorAll(".cell"), {
+        max: 20,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.5,
+      });
+    </script>
+  </body>
 </html>

@@ -1,7 +1,13 @@
 let imageArray = [];
+let counter = 0;
 
 function createArray() {
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 6; i++) {
+    imageArray.push(createImg(i));
+    // console.log(i);
+  }
+
+  for (let i = 0; i < 6; i++) {
     imageArray.push(createImg(i));
     // console.log(i);
   }
@@ -31,11 +37,12 @@ function createImg(i) {
   img.src = `/images/img${i + 1}.jpg`;
   img.width = "110";
   img.height = "110";
+  img.alt = `img${i + 1}`;
   img.setAttribute("id", `img${i + 1}`);
   //   imageArray[i] = img;
   return img;
 }
--
+
 let message;
 
 function settingShuffledImagesOnCards() {
@@ -49,6 +56,7 @@ function settingShuffledImagesOnCards() {
   for (cell of cells) {
     // console.log(cell, typeof cell);
     cell.childNodes[3].append(shuffleCards[index]);
+    cell.id = shuffleCards[index].alt;
     // console.log(cell.childNodes[3].append(shuffleCards[index]));
     index += 1;
     // console.log(cell.childNodes[3]);
@@ -57,28 +65,62 @@ function settingShuffledImagesOnCards() {
 
 let openedCards = [];
 
+function moveCounter() {
+  // console.log(movecounter);
+  let movecounter = document.getElementById("movecounter");
+  counter += 1;
+  movecounter.innerHTML = counter;
+}
+
 function matched() {
   console.log("matched");
+  openedCards[0].classList.add("match");
+  openedCards[1].classList.add("match");
+  // console.log(openedCards[0]);
+  // console.log(openedCards[1]);
+  openedCards[0].classList.remove("flipCard");
+  openedCards[1].classList.remove("flipCard");
+  openedCards = [];
 }
+
+function disable() {
+  let cards = document.getElementsByClassName("card");
+  console.log([...cards]);
+  [...cards].forEach((item) => {
+    item.classList.remove("flipCard");
+  });
+  console.log("indisable");
+}
+
+function enable() {}
 
 function unmatched() {
   console.log("unmatched");
-  openedCards[0].classList.add("flipCard");
-  openedCards[1].classList.remove("flipCard");
+  openedCards[0].classList.add("match");
+  openedCards[1].classList.add("match");
+  disable();
+  setTimeout(() => {
+    openedCards[0].classList.remove("match");
+    openedCards[1].classList.remove("match");
+    // openedCards[0].classList.remove("flipCard");
+    // openedCards[1].classList.remove("flipCard");
+    // openedCards[0].classList.toggle("flipCard");
+    // openedCards[1].classList.toggle("flipCard");
+    openedCards = [];
+  }, 1100);
 }
 
 function cardOpen(thisCard) {
   openedCards.push(thisCard);
-
+  moveCounter();
   let totalOpen = openedCards.length;
 
   if (totalOpen == 2) {
+    // console.log(openedCards[0].id, openedCards[1].id);
     if (openedCards[0].id == openedCards[1].id) {
       matched();
-      openedCards = [];
     } else {
       unmatched();
-      openedCards = [];
     }
   }
 
@@ -93,7 +135,7 @@ function main() {
   for (let i = 0; i < 12; i++) {
     cells[i].addEventListener("click", () => {
       cells[i].classList.toggle("flipCard");
-      cardOpen(cells[i].childNodes[3].lastChild);
+      cardOpen(cells[i]);
     });
   }
 
@@ -122,38 +164,4 @@ function main() {
 
   // }
   // checkingImages();
-}
-
-let count = 0;
-let checker1, checker2;
-function invoked(img) {
-  count += 1;
-  if (count == 2) {
-    checker2 = img;
-    count = 0;
-    checkingImages();
-    return;
-  }
-  checker1 = img;
-}
-
-let score = 0;
-let failed = 0;
-
-function checkingImages() {
-  console.log(checker1.id, checker2.id);
-
-  if (checker1.id == checker2.id) {
-    // alert("Success!");
-    message = "Success!";
-    let success = document.getElementById("totalScore");
-    score += 1;
-    success.innerHTML = score;
-  } else {
-    // alert("Failed!");
-    message = "Failed!";
-    let fail = document.getElementById("failedAttempt");
-    failed += 1;
-    fail.innerHTML = failed;
-  }
 }

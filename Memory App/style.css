@@ -78,6 +78,13 @@ strong {
   transform: rotateX(0deg);
 }
 
+.match .card-back {
+  transform: rotateX(0deg);
+}
+
+.disabled {
+}
+
 .card-front {
   background-size: cover;
   position: absolute;
