@@ -1,5 +1,13 @@
 let imageArray = [];
-let counter = 0;
+let moves = 0;
+let openedCards = [];
+let second = 0;
+let minute = 0;
+let hour = 0;
+let interval;
+let matchedCards = [];
+let finalTime = 0;
+let totalMoves = 0;
 
 function createArray() {
   for (let i = 0; i < 6; i++) {
@@ -56,20 +64,46 @@ function settingShuffledImagesOnCards() {
   for (cell of cells) {
     // console.log(cell, typeof cell);
     cell.childNodes[3].append(shuffleCards[index]);
-    cell.id = shuffleCards[index].alt;
+    // console.log(index, shuffleCards[index]);
+    if (index < 12){
+      cell.id = shuffleCards[index].alt;
+    }
     // console.log(cell.childNodes[3].append(shuffleCards[index]));
     index += 1;
     // console.log(cell.childNodes[3]);
   }
 }
 
-let openedCards = [];
+function startTime() {
+  let timer = document.getElementById('timer');
+  console.log('in timer' + timer.innerHTML);
+  interval = setInterval(() => {
+    timer.innerHTML = `${minute} mins ${second} secs`;
+    second += 1;
+    if (second == 60) {
+      minute += 1;
+      second = 0;
+    }
+    if (minute == 60) {
+      hour += 1;
+      minute = 0;
+    }
+  }, 1000);
+}
 
 function moveCounter() {
   // console.log(movecounter);
   let movecounter = document.getElementById("movecounter");
-  counter += 1;
-  movecounter.innerHTML = counter;
+  moves += 1;
+  movecounter.innerHTML = moves;
+
+  if (moves == 1) {
+    (
+      [second, hour, minute] =  [0, 0, 0]
+    )
+    startTime();
+  }
+
 }
 
 function matched() {
@@ -80,19 +114,35 @@ function matched() {
   // console.log(openedCards[1]);
   openedCards[0].classList.remove("flipCard");
   openedCards[1].classList.remove("flipCard");
+  matchedCards.push(openedCards[0]);
+  matchedCards.push(openedCards[1]);
   openedCards = [];
 }
 
 function disable() {
   let cards = document.getElementsByClassName("card");
-  console.log([...cards]);
+  // console.log([...cards]);
   [...cards].forEach((item) => {
     item.classList.remove("flipCard");
   });
-  console.log("indisable");
+
+  [...cards].forEach((item) => {
+    item.removeEventListener('click', toggling);
+  });
+  // console.log("indisable");
 }
 
-function enable() {}
+function enable() {
+  let cards = document.getElementsByClassName("card");
+
+  [...cards].forEach(item => {
+    item.addEventListener('click', toggling);
+  });
+
+  // openedCards[0].classList.add("match");
+  // openedCards[1].classList.add("match");
+
+}
 
 function unmatched() {
   console.log("unmatched");
@@ -102,12 +152,13 @@ function unmatched() {
   setTimeout(() => {
     openedCards[0].classList.remove("match");
     openedCards[1].classList.remove("match");
+    enable();
     // openedCards[0].classList.remove("flipCard");
     // openedCards[1].classList.remove("flipCard");
     // openedCards[0].classList.toggle("flipCard");
     // openedCards[1].classList.toggle("flipCard");
     openedCards = [];
-  }, 1100);
+  }, 1000);
 }
 
 function cardOpen(thisCard) {
@@ -127,41 +178,41 @@ function cardOpen(thisCard) {
   //   console.log(openedCards);
 }
 
-function main() {
+
+
+function startGame () {
   settingShuffledImagesOnCards();
+  ([second, hour, minute] = [0, 0, 0]);
+  clearInterval();
+  let timer = document.getElementById('timer');
+  timer.innerHTML = "0 mins 0 secs";
+}
 
+
+function congratulations() {
+  if (matchedCards.length == 12) {
+    console.log("fullly solved");
+    clearInterval(interval);
+    finalTime = timer.innerHTML;
+    totalMoves = moves;
+    // document.getElementById('congroModal').modal({backdrop: true});
+    $('#congroModal').modal({ backdrop: true });
+
+  
+  }
+}
+
+function toggling () {
+  this.classList.toggle("flipCard");
+  cardOpen(this);
+}
+
+function main() {
   const cells = document.getElementsByClassName("card");
-
   for (let i = 0; i < 12; i++) {
-    cells[i].addEventListener("click", () => {
-      cells[i].classList.toggle("flipCard");
-      cardOpen(cells[i]);
-    });
+    cells[i].addEventListener("click", toggling);
+    cells[i].addEventListener('click', congratulations);
   }
 
-  // createArray();
-  // console.log(imageArray);
-  // shuffleArray(imageArray);
-  // console.log(imageArray);
-
-  //   console.log(cells);
-
-  // const cell = document.getElementsByClassName("card");
-  // let random;
-
-  // for (let i = 0; i<9; i++) {
-  //     cell[i].addEventListener('click', () => {
-  //         cell[i].classList.toggle('flipCard');
-  //         random = Math.floor((Math.random() * 9) + 1);
-  //         let createImage = createImg(random);
-  //         // cell[i].childNodes[3].appendChild(images[random]);
-  //         cell[i].childNodes[3].appendChild(createImage);
-  //         // cell[i].childNodes[3].appendChild();
-  //         invoked(createImage);
-  //         // console.log(cell[i].childNodes[3].childNodes);
-  //         // console.log(checker1, checker2);
-  //     })
-
-  // }
-  // checkingImages();
+  startGame();
 }

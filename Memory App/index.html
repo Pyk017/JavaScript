@@ -11,7 +11,7 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
   </head>
@@ -24,7 +24,7 @@
       <div class="container pt-5">
         <div class="row justify-content-center">
           <div class="col-3 content">
-            <span>Time :- <strong id="">0.00</strong>s</span>
+            <span>Time :- <strong id="timer">0 min 0 sec</strong></span>
           </div>
           <div class="col-2 content">
             <span>Flips :- <strong id="movecounter">0</strong></span>
@@ -103,6 +103,20 @@
           <div class="card-front">12</div>
           <div class="card-back">
             <!-- <img src="/images/img9.jpg" id="img9" width="110" height="110" style="display: flex;"> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Congratulations Modal using bootstrap -->
+
+    <div class="modal fade" id="congroModal" role="dialog">
+      <div class="modal-dialog">
+        <div class="card">
+          <div class="text-right cross"><i class="fa fa-times"></i></div>
+          <div class="card-body text-center"><img src="https://img.icon8.com/bubbles/200/000000/trophy.png">
+            <h4>Congratulations!</h4>
+            <p>You have WON the game.</p>
           </div>
         </div>
       </div>

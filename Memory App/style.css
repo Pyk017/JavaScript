@@ -82,8 +82,6 @@ strong {
   transform: rotateX(0deg);
 }
 
-.disabled {
-}
 
 .card-front {
   background-size: cover;
