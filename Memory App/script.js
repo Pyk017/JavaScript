@@ -188,15 +188,21 @@ function startGame () {
   timer.innerHTML = "0 mins 0 secs";
 }
 
+// function isAllFliped() {
+
+// }
+
 
 function congratulations() {
+  console.log(matchedCards, matchedCards.length);
   if (matchedCards.length == 12) {
     console.log("fullly solved");
     clearInterval(interval);
     finalTime = timer.innerHTML;
     totalMoves = moves;
     // document.getElementById('congroModal').modal({backdrop: true});
-    $('#congroModal').modal({ backdrop: true });
+    $('#myModal').modal('show');
+    
 
   
   }
@@ -205,13 +211,14 @@ function congratulations() {
 function toggling () {
   this.classList.toggle("flipCard");
   cardOpen(this);
+  congratulations();
 }
 
 function main() {
   const cells = document.getElementsByClassName("card");
   for (let i = 0; i < 12; i++) {
     cells[i].addEventListener("click", toggling);
-    cells[i].addEventListener('click', congratulations);
+    // cells[i].addEventListener('click', congratulations);
   }
 
   startGame();
