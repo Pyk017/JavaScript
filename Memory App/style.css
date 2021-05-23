@@ -10,7 +10,7 @@ body {
 .heading {
   margin-left: 37%;
   font-family: "DotGothic16", sans-serif;
-
+  text-shadow: 0px 0px 6px rgba(231, 227, 227, 0.6);
   color: rgba(0, 255, 255, 0.726);
 }
 
@@ -48,10 +48,12 @@ strong {
   border-radius: 6px;
   overflow: hidden;
   z-index: 10;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(55px);
   border-top: 2px solid rgba(255, 255, 255, 0.2);
   border-left: 2px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 8px rgba(219, 232, 233, 0.726);
+  /* box-shadow: 5px 5px 30px rgba(79, 236, 87, 0.726); */
+
   /* transform: translate(-50%, -50%); */
   transform-style: preserve-3d;
   transition: all 0.8s ease;
@@ -60,6 +62,7 @@ strong {
 
 .cell:hover {
   cursor: pointer;
+  box-shadow: 5px 5px 30px rgba(7, 216, 231, 0.671);
 }
 
 /* .card:hover .card-front {
@@ -85,7 +88,6 @@ strong {
   transition: 0.5s;
 }
 
-
 .card-front {
   background-size: cover;
   position: absolute;
@@ -101,10 +103,7 @@ strong {
   transition: 0.5s;
 }
 
-
-
 /* Congratulation Modal styling */
-
 
 .mcard {
   position: relative;
@@ -119,42 +118,44 @@ strong {
   border-radius: 4px;
   -webkit-box-shadow: 0px 0px 5px 0px rgb(249, 249, 250);
   -moz-box-shadow: 0px 0px 5px 0px rgba(212, 182, 212, 1);
-  box-shadow: 0px 0px 5px 0px rgb(161, 163, 164)
+  box-shadow: 0px 0px 5px 0px rgb(161, 163, 164);
 }
 
 .mcard .mcard-body {
-  padding: 1rem 1rem
+  padding: 1rem 1rem;
 }
 
 .mcard-body {
   flex: 1 1 auto;
-  padding: 1.25rem
+  padding: 1.25rem;
 }
 
 .cross {
+  float: right;
   padding: 10px;
   color: #d6312d;
   cursor: pointer;
-  z-index: -1;
+  z-index: 1;
 }
 
 .continue:focus {
-  outline: none
+  outline: none;
 }
 
-.continue {
+#continue {
   border-radius: 5px;
   text-transform: capitalize;
   font-size: 13px;
   padding: 8px 19px;
   cursor: pointer;
   color: #fff;
-  background-color: #D50000
+  background-color: #d50000;
 }
 
-.continue:hover {
-  background-color: #D32F2F !important
+#continue:hover {
+  background-color: #d32f2f !important;
 }
 
-
-
+.material-icons {
+  cursor: pointer;
+}

@@ -5,7 +5,8 @@ let second = 0;
 let minute = 0;
 let hour = 0;
 let interval;
-let matchedCards = [];
+// let matchedCards = [];
+let matchedCards = new Set();
 let finalTime = 0;
 let totalMoves = 0;
 
@@ -65,7 +66,7 @@ function settingShuffledImagesOnCards() {
     // console.log(cell, typeof cell);
     cell.childNodes[3].append(shuffleCards[index]);
     // console.log(index, shuffleCards[index]);
-    if (index < 12){
+    if (index < 12) {
       cell.id = shuffleCards[index].alt;
     }
     // console.log(cell.childNodes[3].append(shuffleCards[index]));
@@ -75,8 +76,8 @@ function settingShuffledImagesOnCards() {
 }
 
 function startTime() {
-  let timer = document.getElementById('timer');
-  console.log('in timer' + timer.innerHTML);
+  let timer = document.getElementById("timer");
+  console.log("in timer" + timer.innerHTML);
   interval = setInterval(() => {
     timer.innerHTML = `${minute} mins ${second} secs`;
     second += 1;
@@ -98,12 +99,9 @@ function moveCounter() {
   movecounter.innerHTML = moves;
 
   if (moves == 1) {
-    (
-      [second, hour, minute] =  [0, 0, 0]
-    )
+    [second, hour, minute] = [0, 0, 0];
     startTime();
   }
-
 }
 
 function matched() {
@@ -114,8 +112,12 @@ function matched() {
   // console.log(openedCards[1]);
   openedCards[0].classList.remove("flipCard");
   openedCards[1].classList.remove("flipCard");
-  matchedCards.push(openedCards[0]);
-  matchedCards.push(openedCards[1]);
+  // matchedCards.push(openedCards[0].title);
+  // matchedCards.push(openedCards[1].title);
+  matchedCards.add(openedCards[0].title);
+  matchedCards.add(openedCards[1].title);
+  openedCards[0].style.boxShadow = "5px 5px 30px rgba(79, 236, 87, 0.726)";
+  openedCards[1].style.boxShadow = "5px 5px 30px rgba(79, 236, 87, 0.726)";
   openedCards = [];
 }
 
@@ -127,7 +129,7 @@ function disable() {
   });
 
   [...cards].forEach((item) => {
-    item.removeEventListener('click', toggling);
+    item.removeEventListener("click", toggling);
   });
   // console.log("indisable");
 }
@@ -135,13 +137,12 @@ function disable() {
 function enable() {
   let cards = document.getElementsByClassName("card");
 
-  [...cards].forEach(item => {
-    item.addEventListener('click', toggling);
+  [...cards].forEach((item) => {
+    item.addEventListener("click", toggling);
   });
 
   // openedCards[0].classList.add("match");
   // openedCards[1].classList.add("match");
-
 }
 
 function unmatched() {
@@ -149,10 +150,16 @@ function unmatched() {
   openedCards[0].classList.add("match");
   openedCards[1].classList.add("match");
   disable();
+  openedCards[0].style.boxShadow = "5px 5px 30px rgba(241, 6, 6, 0.479)";
+  openedCards[1].style.boxShadow = "5px 5px 30px rgba(241, 6, 6, 0.479)";
+
   setTimeout(() => {
     openedCards[0].classList.remove("match");
     openedCards[1].classList.remove("match");
     enable();
+    openedCards[0].style.boxShadow = "2px 2px 8px rgba(219, 232, 233, 0.726)";
+    openedCards[1].style.boxShadow = "2px 2px 8px rgba(219, 232, 233, 0.726)";
+
     // openedCards[0].classList.remove("flipCard");
     // openedCards[1].classList.remove("flipCard");
     // openedCards[0].classList.toggle("flipCard");
@@ -164,11 +171,15 @@ function unmatched() {
 function cardOpen(thisCard) {
   openedCards.push(thisCard);
   moveCounter();
+
   let totalOpen = openedCards.length;
 
   if (totalOpen == 2) {
     // console.log(openedCards[0].id, openedCards[1].id);
-    if (openedCards[0].id == openedCards[1].id) {
+    if (
+      openedCards[0].id == openedCards[1].id &&
+      openedCards[0].title != openedCards[1].title
+    ) {
       matched();
     } else {
       unmatched();
@@ -178,38 +189,37 @@ function cardOpen(thisCard) {
   //   console.log(openedCards);
 }
 
-
-
-function startGame () {
+function startGame() {
   settingShuffledImagesOnCards();
-  ([second, hour, minute] = [0, 0, 0]);
+  [second, hour, minute] = [0, 0, 0];
   clearInterval();
-  let timer = document.getElementById('timer');
+  let timer = document.getElementById("timer");
   timer.innerHTML = "0 mins 0 secs";
+  let flips = document.getElementById("movecounter");
+  flips.innerHTML = "0";
 }
 
 // function isAllFliped() {
 
 // }
 
-
 function congratulations() {
-  console.log(matchedCards, matchedCards.length);
-  if (matchedCards.length == 12) {
+  console.log(matchedCards, matchedCards.size);
+  if (matchedCards.size == 12) {
     console.log("fullly solved");
     clearInterval(interval);
     finalTime = timer.innerHTML;
     totalMoves = moves;
     // document.getElementById('congroModal').modal({backdrop: true});
-    $('#myModal').modal('show');
-    
-
-  
+    $("#myModal").modal("show");
+    document.getElementById("showTime").innerHTML = finalTime;
+    document.getElementById("showFlips").innerHTML = totalMoves;
   }
 }
 
-function toggling () {
+function toggling() {
   this.classList.toggle("flipCard");
+  console.log(matchedCards);
   cardOpen(this);
   congratulations();
 }
@@ -220,6 +230,32 @@ function main() {
     cells[i].addEventListener("click", toggling);
     // cells[i].addEventListener('click', congratulations);
   }
-
   startGame();
 }
+
+function resetterFunction() {
+  imageArray = [];
+  moves = 0;
+  openedCards = [];
+  second = 0;
+  minute = 0;
+  hour = 0;
+  interval;
+  matchedCards = new Set();
+  finalTime = 0;
+  totalMoves = 0;
+  const cells = document.getElementsByClassName("card");
+  [...cells].forEach((item) => {
+    console.log(item, item.childNodes[3], item.childNodes[3].lastChild);
+    item.classList.remove("match");
+    item.childNodes[3].lastChild.remove();
+    item.style.boxShadow = "2px 2px 8px rgba(219, 232, 233, 0.726)";
+  });
+  main();
+}
+
+$(function () {
+  $(document).on("click", "continue", (event) => {
+    resetterFunction();
+  });
+});
