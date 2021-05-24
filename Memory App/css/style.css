@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DotGothic16&family=Roboto:wght@100&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+  /* background: #b92b27;
+  background: -webkit-linear-gradient(to right, #1565c0, #b92b27);
+  background: linear-gradient(to right, #1565c0, #b92b27); */
+
+  background: #373B44;
+  background: -webkit-linear-gradient(to right, #4286f4, #373B44);
+  background: linear-gradient(to right, #4286f4, #373B44);
+}
+
+.heading {
+  margin-top: 2%;
+  margin-left: 22%;
+  /* font-family: "DotGothic16", sans-serif; */
+  font-family: 'Press Start 2P',
+  cursive;
+  text-shadow: 0px 0px 6px rgb(247, 100, 100);
+  /* color: rgba(0, 255, 255, 0.726); */
+  color: rgba(226, 155, 233, 0.562);
+
+}
+
+.content {
+  font-family: "Source Code Pro", monospace;
+  font-weight: bolder;
+  font-size: large;
+  /* color: rgb(177, 247, 243); */
+  color: rgb(247, 100, 100);
+}
+
+strong {
+  font-family: "Source Code Pro",
+  monospace;
+}
+
+.grid {
+  padding-left: 25%;
+  padding-top: 3%;
+  width: 50%;
+  display: grid;
+  grid-template-columns: repeat(4, 110px);
+  grid-template-rows: repeat(3, 110px);
+  grid-gap: 30px;
+}
+
+.cell {
+  /* center the cell content */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-family: "DotGothic16", sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  color: rgba(248, 250, 248, 0.938);
+  background: rgba(3, 211, 248, 0.05);
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 10;
+  backdrop-filter: blur(55px);
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 2px 2px 8px rgba(219, 232, 233, 0.726);
+  /* box-shadow: 5px 5px 30px rgba(79, 236, 87, 0.726); */
+  /* transform: translate(-50%, -50%); */
+  transform-style: preserve-3d;
+  transition: all 0.8s ease;
+  perspective: 1000px;
+}
+
+.cell:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 30px rgba(7, 216, 231, 0.671);
+}
+
+
+.flipCard .card-front {
+  transform: rotateX(-180deg);
+  transition: 0.5s;
+}
+
+.flipCard .card-back {
+  transform: rotateX(0deg);
+  transition: 0.5s;
+}
+
+.match .card-back {
+  transform: rotateX(0deg);
+  transition: 0.5s;
+}
+
+.card-front {
+  background-size: cover;
+  position: absolute;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+  transition: 0.5s;
+}
+
+.card-back {
+  position: absolute;
+  backface-visibility: hidden;
+  transform: rotateX(180deg);
+  transition: 0.5s;
+}
+
+/* Congratulation Modal styling */
+
+.cross {
+  padding-left: 97%;
+  color: #d6312d;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.material-icons {
+  cursor: pointer;
+} 

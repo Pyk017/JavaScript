@@ -12,23 +12,26 @@
       crossorigin="anonymous"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
-    <script src="script.js"></script>
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <script src="js/script.js"></script>
   </head>
+  
   <body onload="main()">
+
     <div class="container cards">
       <div class="heading">
         <span><h2 class="display-4">Memory Game</h2></span>
       </div>
-
       <div class="container pt-5">
         <div class="row justify-content-center">
           <div class="col-3 content">
-            <span>Time :- <strong id="timer">0 min 0 sec</strong></span>
+            <span><i class='fas fa-clock' style='font-size:20px'></i>  <strong id="timer">0 min 0 sec</strong></span>
           </div>
           <div class="col-2 content">
             <span>Flips :- <strong id="movecounter">0</strong></span>
@@ -48,130 +51,113 @@
       <div class="grid">
         <div class="cell card" id="1" title="card1">
           <div class="card-front">1</div>
-          <div class="card-back">
-            <!-- <img src="/images/img1.jpg" id="img1" width="110" height="110" style="display: flex;"> -->
-          </div>
+          <div class="card-back"></div>
         </div>
         <div class="cell card" id="2" title="card2">
           <div class="card-front">2</div>
-          <div class="card-back">
-            <!-- <img src="/images/img2.jpg" id="img2" width="110" height="110" style="display: flex;"> -->
-          </div>
+          <div class="card-back"></div>
         </div>
         <div class="cell card" id="3" title="card3">
           <div class="card-front">3</div>
-          <div class="card-back">
-            <!-- <img src="/images/img3.jpg" id="img3" width="110" height="110" style="display: flex;"> -->
-          </div>
+          <div class="card-back"></div>
         </div>
         <div class="cell card" id="4" title="card4">
           <div class="card-front">4</div>
-          <div class="card-back">
-            <!-- <img src="/images/img4.jpg" id="img4" width="110" height="110" style="display: flex;"> -->
-          </div>
+          <div class="card-back"></div>
         </div>
         <div class="cell card" id="5" title="card5">
           <div class="card-front">5</div>
-          <div class="card-back">
-            <!-- <img src="/images/img5.jpg" id="img5" width="110" height="110" style="display: flex;"> -->
-          </div>
+          <div class="card-back"></div>
         </div>
         <div class="cell card" id="6" title="card6">
           <div class="card-front">6</div>
-          <div class="card-back">
-            <!-- <img src="/images/img6.jpg" id="img6" width="110" height="110" style="display: flex;"> -->
-          </div>
+          <div class="card-back"></div>
         </div>
         <div class="cell card" id="7" title="card7">
           <div class="card-front">7</div>
-          <div class="card-back">
-            <!-- <img src="/images/img7.jpg" id="img7" width="110" height="110" style="display: flex;"> -->
-          </div>
+          <div class="card-back"></div>
         </div>
         <div class="cell card" id="8" title="card8">
           <div class="card-front">8</div>
-          <div class="card-back">
-            <!-- <img src="/images/img8.jpg" id="img8" width="110" height="110" style="display: flex;"> -->
-          </div>
+          <div class="card-back"></div>
         </div>
         <div class="cell card" id="9" title="card9">
           <div class="card-front">9</div>
-          <div class="card-back">
-            <!-- <img src="/images/img9.jpg" id="img9" width="110" height="110" style="display: flex;"> -->
-          </div>
+          <div class="card-back"></div>
         </div>
         <div class="cell card" id="10" title="card10">
           <div class="card-front">10</div>
-          <div class="card-back">
-            <!-- <img src="/images/img9.jpg" id="img9" width="110" height="110" style="display: flex;"> -->
-          </div>
+          <div class="card-back"></div>
         </div>
         <div class="cell card" id="11" title="card11">
           <div class="card-front">11</div>
-          <div class="card-back">
-            <!-- <img src="/images/img9.jpg" id="img9" width="110" height="110" style="display: flex;"> -->
-          </div>
+          <div class="card-back"></div>
         </div>
         <div class="cell card" id="12" title="card12">
           <div class="card-front">12</div>
-          <div class="card-back">
-            <!-- <img src="/images/img9.jpg" id="img9" width="110" height="110" style="display: flex;"> -->
-          </div>
+          <div class="card-back"></div>
         </div>
       </div>
     </div>
 
-    <!-- Congratulations Modal using bootstrap -->
 
-    <div class="modal fade" id="myModal" role="dialog">
-      <div class="modal-dialog">
-        <div class="mcard modal-header">
-          <div class="text-right cross">
-            <i class="bi bi-x">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-x"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
-                />
-              </svg>
-            </i>
+    <!-- CONGRATULATIONS MODAL using BOOTSTRAP -->
+
+    <div class="modal fade" id="myModal"role="dialog">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+            <div class="text-right cross">
+              <i class="bi bi-x" data-bs-dismiss="modal">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-x"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                  />
+                </svg>
+              </i>
+            </div>
+            <div class="congrats">
+              <img src="https://img.icons8.com/bubbles/200/000000/trophy.png" />
+              <h4>CONGRATULATIONS!</h4>
+              <p>You have Solved the puzzle: <br />
+                Time : <b id="showTime"><br /></b> Flips :
+                <b id="showFlips"></b>
+              </p>
+            </div>
           </div>
-          <div class="modal-body mcard-body text-center">
-            <img src="https://img.icons8.com/bubbles/200/000000/trophy.png" />
-            <h4>CONGRATULATIONS!</h4>
-            <p>You have Solved the puzzle:</p>
-            <p>
-              Time : <b id="showTime"><br /><br /></b> Flips :
-              <b id="showFlips"></b>
-            </p>
-          </div>
-          <div class="modal-footer">
+          <div class="modal-footer justify-content-center">
             <button
-              type="button"
-              id="continue"
-              class="btn btn-danger"
-              onclick="resettingFunction()"
-            >
-              PLAY AGAIN!
-            </button>
+                type="button"
+                id="continue"
+                class="btn btn-danger"
+                onclick="resetterFunction()"
+                data-bs-dismiss="modal"
+              >
+                PLAY AGAIN!
+              </button>
           </div>
         </div>
       </div>
     </div>
 
+
+    <!-- Bootstrap JS CDN -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
 
-    <script type="text/javascript" src="vanilla-tilt.js"></script>
+
+    <!-- Vanilla JS (for Glassmorphism) -->
+    <script type="text/javascript" src="js/vanilla-tilt.js"></script>
     <script type="text/javascript">
       VanillaTilt.init(document.querySelectorAll(".cell"), {
         max: 20,
@@ -180,5 +166,8 @@
         "max-glare": 0.5,
       });
     </script>
+
+    
+
   </body>
 </html>
