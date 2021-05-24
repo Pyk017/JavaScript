@@ -24,6 +24,8 @@
   
   <body onload="main()">
 
+    <div id="tsparticles"></div>
+
     <div class="container cards">
       <div class="heading">
         <span><h2 class="display-4">Memory Game</h2></span>
@@ -103,7 +105,8 @@
 
     <!-- CONGRATULATIONS MODAL using BOOTSTRAP -->
 
-    <div class="modal fade" id="myModal"role="dialog">
+    <div class="modal fade" id="myModal" role="dialog">
+      <div id="tsparticles_1"></div>
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-body text-center">
@@ -146,6 +149,7 @@
         </div>
       </div>
     </div>
+    
 
 
     <!-- Bootstrap JS CDN -->
@@ -154,6 +158,10 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
+
+    <!-- tsParticles JS script file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles/1.26.3/tsparticles.js" integrity="sha512-tlPiMememmA00Ch1xtVEuGCOfgAaO9+V6BxA+HYNluG2Tvh+P4KdioymC0KNYU0jqt0srYAhSkdo8IF6A7FmYw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/app.js"></script>
 
 
     <!-- Vanilla JS (for Glassmorphism) -->
