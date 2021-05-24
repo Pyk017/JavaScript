@@ -232,7 +232,10 @@ function congratulations() {
     $("#myModal").modal("show");
     document.getElementById("showTime").innerHTML = finalTime;
     document.getElementById("showFlips").innerHTML = totalMoves;
+    tsParticles.loadJSON('tsparticles', 'json/congratulation.json');  
   }
+  // tsParticles.remove('tsparticles');
+  
 }
 
 
@@ -247,11 +250,13 @@ function toggling() {
 
 // Main Function when website loads
 function main() {
+  tsParticles.loadJSON('tsparticles', 'json/variant1.json');
   const cells = document.getElementsByClassName("card");
   for (let i = 0; i < 12; i++) {
     cells[i].addEventListener("click", toggling);
     // cells[i].addEventListener('click', congratulations);
   }
+
   startGame();
 }
 
