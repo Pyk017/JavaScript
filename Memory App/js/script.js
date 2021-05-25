@@ -12,12 +12,19 @@ let message;
 
 // Creation of Array of Image objects (containing dublicates images objects)
 function createArray() {
+  let arr = [];
+  let set = new Set();
+  while (set.size != 6) {
+    set.add(Math.floor(Math.random() * 9) + 1);
+  }
+  set.forEach((item) => arr.push(item));
+
   for (let i = 0; i < 6; i++) {
-    imageArray.push(createImg(i));
+    imageArray.push(createImg(arr[i] - 1));
   }
 
   for (let i = 0; i < 6; i++) {
-    imageArray.push(createImg(i));
+    imageArray.push(createImg(arr[i] - 1));
   }
 }
 
