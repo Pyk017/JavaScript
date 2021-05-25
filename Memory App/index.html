@@ -25,8 +25,20 @@
     <script src="js/script.js"></script>
   </head>
 
-  <body onload="main()">
+  <body>
     <div id="tsparticles"></div>
+    <div id="overlayText" class="overlay-text visible" onclick="main()">
+      <div class="text">Click to Start
+        <div class="hints">
+          Hints : 
+          <ul>
+            <li>Please flip two cards at a time!</li>
+            <li>This Game tests your memory, how well you remember the cards. So play sharply.</li>
+            <li>Choose one card and then the other to match if they are same or not in less time and moves.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <div class="container cards">
       <div class="heading">
@@ -169,7 +181,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="js/app.js"></script>
 
     <!-- Vanilla JS (for Glassmorphism) -->
     <script type="text/javascript" src="js/vanilla-tilt.js"></script>

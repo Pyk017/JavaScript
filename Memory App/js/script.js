@@ -242,6 +242,8 @@ function toggling() {
 // Main Function when website loads
 function main() {
   tsParticles.loadJSON("tsparticles", "json/variant2.json");
+  let overlayText = document.getElementById('overlayText');
+  overlayText.classList.remove('visible');
   const cells = document.getElementsByClassName("card");
   for (let i = 0; i < 12; i++) {
     cells[i].addEventListener("click", toggling);

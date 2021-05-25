@@ -143,3 +143,48 @@ strong {
 .material-icons {
   cursor: pointer;
 } 
+
+
+/* Overlay Text */
+
+.overlay-text {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  cursor: default;
+}
+
+.overlay-text.visible{
+  display: flex;
+  animation: overlay-grow 500ms forwards;
+}
+
+.overlay-text .text {
+  color: rgb(247, 100, 100);
+  font-family: 'Press Start 2P',
+  cursive,
+  sans-serif;
+}
+
+.overlay-text .hints {
+  font-size: 15px;
+  font-family: "Source Code Pro",
+  monospace;
+} 
+
+@keyframes overlay-grow {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 0;
+  }
+  to {
+    font-size: 5em;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
