@@ -17,7 +17,7 @@
       "type": "circle"
     },
     "opacity": {
-      "value": 0.5,
+      "value": 5,
       "random": false,
       "animation": {
         "enable": true,
@@ -27,7 +27,7 @@
       }
     },
     "size": {
-      "value": 5,
+      "value": 7,
       "random": {
         "enable": true,
         "minimumValue": 3
@@ -52,7 +52,7 @@
     "move": {
       "enable": true,
       "gravity": {
-        "enable": false
+        "enable": true
       },
       "speed": 25,
       "direction": "none",

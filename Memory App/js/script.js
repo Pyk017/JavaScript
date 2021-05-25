@@ -10,7 +10,6 @@ let finalTime = 0;
 let totalMoves = 0;
 let message;
 
-
 // Creation of Array of Image objects (containing dublicates images objects)
 function createArray() {
   for (let i = 0; i < 6; i++) {
@@ -21,7 +20,6 @@ function createArray() {
     imageArray.push(createImg(i));
   }
 }
-
 
 // Shuffling of Array so that after each reload new pattern of images shows up
 function shuffleArray(array) {
@@ -43,7 +41,6 @@ function shuffleArray(array) {
   return array;
 }
 
-
 // Creating Image DOM object with various essential attributes
 function createImg(i) {
   let img = document.createElement("img");
@@ -55,8 +52,6 @@ function createImg(i) {
   //   imageArray[i] = img;
   return img;
 }
-
-
 
 // Function is used to setting shuffled images on Card divisions
 function settingShuffledImagesOnCards() {
@@ -80,8 +75,6 @@ function settingShuffledImagesOnCards() {
   }
 }
 
-
-
 // Function used to set the timer for the Game
 function startTime() {
   let timer = document.getElementById("timer");
@@ -99,7 +92,6 @@ function startTime() {
     }
   }, 1000);
 }
-
 
 // Function used to count the moves of the player
 function moveCounter() {
@@ -132,7 +124,6 @@ function matched() {
   openedCards = [];
 }
 
-
 // Disabling the classes of toggling
 function disable() {
   let cards = document.getElementsByClassName("card");
@@ -147,7 +138,6 @@ function disable() {
   // console.log("indisable");
 }
 
-
 // Enabling the classes of toggling
 function enable() {
   let cards = document.getElementsByClassName("card");
@@ -159,7 +149,6 @@ function enable() {
   // openedCards[0].classList.add("match");
   // openedCards[1].classList.add("match");
 }
-
 
 // Function perform when cards are unmatched
 function unmatched() {
@@ -185,7 +174,6 @@ function unmatched() {
   }, 1000);
 }
 
-
 // Function, when cards are opened and whether they are matched or unmatched
 function cardOpen(thisCard) {
   openedCards.push(thisCard);
@@ -207,7 +195,6 @@ function cardOpen(thisCard) {
   //   console.log(openedCards);
 }
 
-
 // Function to start game
 function startGame() {
   settingShuffledImagesOnCards();
@@ -218,7 +205,6 @@ function startGame() {
   let flips = document.getElementById("movecounter");
   flips.innerHTML = "0";
 }
-
 
 // Function to show Congratulations modal
 function congratulations() {
@@ -232,12 +218,11 @@ function congratulations() {
     $("#myModal").modal("show");
     document.getElementById("showTime").innerHTML = finalTime;
     document.getElementById("showFlips").innerHTML = totalMoves;
-    tsParticles.loadJSON('tsparticles', 'json/congratulation.json');  
+    tsParticles.loadJSON("tsparticles", "json/congratulation.json");
   }
-  // tsParticles.remove('tsparticles');
-  
-}
 
+  // tsParticles.remove('tsparticles');
+}
 
 // Function to add classes to toggle the card
 function toggling() {
@@ -247,10 +232,9 @@ function toggling() {
   congratulations();
 }
 
-
 // Main Function when website loads
 function main() {
-  tsParticles.loadJSON('tsparticles', 'json/variant1.json');
+  tsParticles.loadJSON("tsparticles", "json/variant2.json");
   const cells = document.getElementsByClassName("card");
   for (let i = 0; i < 12; i++) {
     cells[i].addEventListener("click", toggling);
@@ -259,7 +243,6 @@ function main() {
 
   startGame();
 }
-
 
 // Resetting Game function
 function resetterFunction() {
@@ -282,4 +265,3 @@ function resetterFunction() {
   });
   main();
 }
-

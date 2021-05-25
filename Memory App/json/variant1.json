@@ -18,8 +18,13 @@
         "mode": "repulse"
       },
       "onHover": {
-        "enable": false,
-        "mode": "trail"
+        "enable": true,
+        "mode": "trail",
+        "parallax": {
+          "enable": true,
+          "force": 60,
+          "smooth": 10
+        }
       }
     },
     "modes": {
@@ -38,6 +43,19 @@
     }
   },
   "particles": {
+    "color": {
+      "value": [
+        "#3998D0",
+        "#2EB6AF",
+        "#A9BD33",
+        "#FEC73B",
+        "#F89930",
+        "#F45623",
+        "#D62E32",
+        "#EB586E",
+        "#9952CF"
+      ]
+    },
     "links": {
       "color": {
         "value": "#ffffff"
