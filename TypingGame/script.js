@@ -19,8 +19,15 @@ let startTime = Date.now();
 const quoteElement = document.getElementById("quote");
 const messageElement = document.getElementById("message");
 const typedValueElement = document.getElementById("typed-value");
+let error = 0;
 
 document.getElementById("start").addEventListener("click", function () {
+  tsParticles.loadJSON("tsparticles", "variant2.json");
+
+  // Setting INPUT box display and BUTTON text.
+  typedValueElement.style.display = "";
+  document.getElementById("start").innerHTML = "RESET";
+
   // get a quote
   const quoteIndex = Math.floor(Math.random() * quotes.length);
   const quote = quotes[quoteIndex];
@@ -62,10 +69,14 @@ typedValueElement.addEventListener("input", (e) => {
     // end of quote
     // Display success
     const elapsedTime = new Date().getTime() - startTime;
-    const message = `CONGRATULATIONS! You finished in ${
-      elapsedTime / 1000
-    } seconds.`;
-    messageElement.innerText = message;
+    $("#myModal").modal("show");
+    document.getElementById("showTime").innerHTML = elapsedTime / 1000;
+    document.getElementById("showFlips").innerHTML = error;
+    // const message = `CONGRATULATIONS! You finished in ${
+    //   elapsedTime / 1000
+    // } seconds.`;
+    // messageElement.innerText = message;
+    tsParticles.loadJSON("tsparticles", "congratulation.json");
   } else if (typedValue.endsWith(" ") && typedValue.trim() === currentWord) {
     // end of word
     // clear the typedValueElement for the new word
@@ -81,9 +92,48 @@ typedValueElement.addEventListener("input", (e) => {
   } else if (currentWord.startsWith(typedValue)) {
     // currently correct
     // highlight the next word
-    typedValueElement.className = "";
+    typedValueElement.className = "form-control";
+    typedValueElement.style.backgroundColor = "";
+    typedValueElement.style.color = "black";
   } else {
     // error state
-    typedValueElement.className = "error";
+    error += 1;
+    typedValueElement.className = "form-control is-invalid";
+    typedValueElement.style.backgroundColor = "#dc3545";
+    typedValueElement.style.color = "white";
   }
 });
+
+function resetterFunction() {
+  tsParticles.loadJSON("tsparticles", "variant2.json");
+  error = 0;
+  // get a quote
+  const quoteIndex = Math.floor(Math.random() * quotes.length);
+  const quote = quotes[quoteIndex];
+  // Put the quote into an array of words
+  words = quote.split(" ");
+  // reset the word index for tracking
+  wordIndex = 0;
+
+  // UI updates
+  // Create an array of span elements so we can set a class
+  const spanWords = words.map(function (word) {
+    return `<span>${word} </span>`;
+  });
+  // Convert into string and set as innerHTML on quote display
+  quoteElement.innerHTML = spanWords.join("");
+  // Highlight the first word
+  quoteElement.childNodes[0].className = "highlight";
+  // Clear any prior messages
+  messageElement.innerText = "";
+
+  // Setup the textbox
+  // Clear the textbox
+  typedValueElement.value = "";
+  // set focus
+  typedValueElement.focus();
+  // set the event handler
+
+  // Start the timer
+  startTime = new Date().getTime();
+}

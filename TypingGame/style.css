@@ -1,5 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Hahmlet:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+
+body {
+  background: #ad5389; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3c1053,
+    #ad5389
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3c1053,
+    #ad5389
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#tsparticles {
+  position: relative;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: -1;
+}
+
+h1 {
+  font-family: "Hahmlet", serif;
+}
+
+.container {
+  margin-top: 10%;
+  color: aliceblue;
+}
+
+.d-flex {
+  justify-content: center;
+  align-items: center;
+}
+
+.typo {
+  font-family: "Roboto Mono", monospace;
+  font-size: 2em;
+  color: rgb(170, 253, 5);
+}
+
+.typed-cursor {
+  color: red;
+  font-size: 2em;
+}
+
+.form-control {
+  font-family: "Hahmlet", serif;
+  font-weight: bolder;
+}
+
+#quote {
+  font-family: "Roboto Slab", serif;
+  font-size: 1.5em;
+}
+
 .highlight {
-  background-color: yellow;
+  background-color: rgba(255, 255, 0, 0.527);
 }
 
 .error {
